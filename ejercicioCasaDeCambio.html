@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/estilos.css" rel="stylesheet"/> 
+
+    <script>
+        function convertir(){
+            // Obtener la cantidad ingresada
+            const cantidad = parseFloat(document.getElementById('cantidadIngresado').value);
+
+            //Tipos de moneda
+            let valorMoneda = 1.0
+            if (document.getElementById('dolar').checked) {
+                valorMoneda = 3.71; // Radio button --> Dólar
+            } else if (document.getElementById('euro').checked) {
+                valorMoneda = 3.96; // Radio button --> Euro 
+            }
+
+            //Operacion
+            let total = cantidad / valorMoneda
+
+            //Mostrar Resultado en cuadro de texto
+            document.getElementById('mostrarTotal').value = total;
+        
+        }
+        
+
+    </script>
+
+    <link href="css/estilos.css" rel="stylesheet"/> 
+
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .texto1{
+            font-size: 14px;
+        }
+        .boton button {
+            background-color: rgb(68, 63, 63);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>CASA DE CAMBIO</h1>
+    <form>
+        <!--<input type="text" name "texto01" placeholder="Escribe aqui"-->
+        <div class="texto1">Seleccionar moneda a enviar:</div>
+        <input type="radio" id="dolar" name="eleccion" value="Opcion1 seleccionado" checked> Dolar
+        <input type="radio" id="euro" name="eleccion" value="Opcion2 seleccionado"> Euro<br/>
+        <div class="texto1">Ingrese monto en soles:</div>
+        <input type="number" id="cantidadIngresado" name="cantidadIngresado" placeholder="Ingrese el monto aqui"/>
+        <div class="boton">
+            <button type="button" onclick=" convertir()">Cotizar</button>
+        </div>
+        <div class="texto1">Total:</div>
+        <input type="number" id="mostrarTotal" name="mostrarTotal" placeholder="Resultado" readonly/>
+
+    </form>
+</body>
+</html>
